@@ -5,9 +5,9 @@ word1=len(word)*'*'
 popytok = len(word)
 t=0
 while t == 0:
-    print('Slovo: ',word1)
-    print('popytok: ',popytok)
-    bukva = input('Введи букву на латинице: ')
+    print('Слово: ',word1)
+    print('Осталось попыток: ',popytok)
+    bukva = input('Введи букву на латинице, translit epta: ')
     if bukva in word:
         ww=''
         for i in range(len(word)):
@@ -28,7 +28,7 @@ while t == 0:
     else:
         popytok = popytok - 1
         if popytok <= 0:
-            print('Вы проиграли')
+            print('Вы проиграли, перезапусти прогу чтобы попытаться заново')
             break
     
         
