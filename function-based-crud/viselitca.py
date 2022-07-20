@@ -22,7 +22,7 @@ while t == 0:
         # i1 = ind_bukvy+1
         # word1 = word1[:ind_bukvy]+bukva+word1[i1:-1] # заменяем * найденной буквой
         if word1==word:
-            print('Вы выйграли')
+            print('Вы выйграли, загаданное слово:', word)
             break
 
     else:

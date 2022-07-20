@@ -1,29 +1,33 @@
+"""Файл с дополнительными функциями"""
+
+
 def generate_id(ids):
     """
-    Принимает список сущ id_
-    Возвращ нов id_ в диап 100 до 1000
+    Принимает список существующих id
+    Возвращает новое id в диапазоне от 100 до 1000
     """
     import random
-    id_ = random.randint(100,1000)
+    id_ = random.randint(100, 1000)
     while id_ in ids:
-        id_ = random.randint(100,1000)
-    return id_
+        id_ = random.randint(100, 1000)
+    return str(id_)
 
-def validate_passwords(p1,p2):
+def validate_passwords(p1, p2):
     """
-    Принимает 2 пароля если они не совпадают выдает ошибку
+    Принимает 2 пароля
+    Если они не совпадают, вызывается ошибка
     """
     if p1 != p2:
-        raise Exception('Пароли не совпадают')
+        raise Exception("Пароли не совпадают")
 
-def validate_id(ids,u_id):
+def validate_id(ids, u_id):
     """
-    Принамает список существующих id и id, которое нужно проверить
-    Если такого нет вызывает Exception
+    Принимает список существующих id и id, которое нужно проверить
+    Если такого id нет в списке, вызывается Exception
     """
-        
-    if u_id not in database:
+    if u_id not in ids:
         raise Exception("Такого юзера нет")
+
 
 def read_db(name):
     """
@@ -41,5 +45,5 @@ def write_to_db(name, data):
     Записывает эти данные в файл
     """
     import json
-    with open(name, "w") as file:
-        json.dump(data, file)
+    with open(name, "w", encoding='utf8') as file:
+        json.dump(data, file, ensure_ascii=False)
