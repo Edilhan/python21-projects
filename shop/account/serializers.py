@@ -13,7 +13,12 @@ class RegisterSerializer(serializers.ModelSerializer):
             'email', 'username', 'password',
             'password_confirm' 
         ] 
-    
+
+    def validate_email(self, email):
+        if User.objects.filter(email=email).exists():
+            raise serializers.ValidationError('User with this email already exists')
+        return email
+
     def validate(self, attrs):
         p1 = attrs['password']
         p2 = attrs.pop('password_confirm')
